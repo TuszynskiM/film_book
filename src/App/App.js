@@ -4,13 +4,18 @@ import YTSearch from 'youtube-api-search';
 import {
     BrowserRouter as Router,
     Switch,
-    Route
+    Route,
+    Link
 } from "react-router-dom";
 import {ROUTE} from "./route-config";
+import Main from "../screens/Main/Main";
+import Login from "../screens/Login/Login";
+import Register from "../screens/Register/Register";
+import store from '../store/configureStore'
+import {Provider} from "react-redux";
 
 function App() {
     useEffect(() => {
-        console.log('jest')
         YTSearch({key: 'AIzaSyDTsR00_je4d0VoBRuJSnL08e8AJjH9xa8'}, (data) => {
             console.log(data)
             try {
@@ -26,15 +31,33 @@ function App() {
 
 
     return (
-     <Router>
-         <Switch>
-             <Route to={ROUTE.HOME}>
-                 <div>
-                     testoawnie
-                 </div>
-             </Route>
-         </Switch>
-     </Router>
+        <Provider store={store}>
+            <Router>
+                <ul>
+                    <li>
+                        <Link to={ROUTE.HOME}>Wideo</Link>
+                    </li>
+                    <li>
+                        <Link to={ROUTE.LOGIN}>Logowanie</Link>
+                    </li>
+                    <li>
+                        <Link to={ROUTE.REGISTER}>Rejestracja</Link>
+                    </li>
+                </ul>
+
+                <Switch>
+                    <Route path={ROUTE.HOME}>
+                        <Main/>
+                    </Route>
+                    <Route path={ROUTE.LOGIN}>
+                        <Login/>
+                    </Route>
+                    <Route path={ROUTE.REGISTER}>
+                        <Register/>
+                    </Route>
+                </Switch>
+            </Router>
+        </Provider>
     );
 }
 

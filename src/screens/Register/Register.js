@@ -1,9 +1,9 @@
 import React, {Fragment} from "react";
 
-const Main = () => (
+const Register = () => (
     <Fragment>
-        Widok główny
+        Widok rejestracji
     </Fragment>
 );
 
-export default Main;
+export default Register;

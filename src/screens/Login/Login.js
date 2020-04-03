@@ -1,9 +1,9 @@
 import React, {Fragment} from "react";
 
-const Main = () => (
+const Login = () => (
     <Fragment>
-        Widok główny
+        Widok logowania
     </Fragment>
 );
 
-export default Main;
+export default Login;
