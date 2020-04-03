@@ -11,10 +11,12 @@ import {ROUTE} from "./route-config";
 import Main from "../screens/Main/Main";
 import Login from "../screens/Login/Login";
 import Register from "../screens/Register/Register";
-import store from '../store/configureStore'
 import {Provider} from "react-redux";
+import configureStore from "../store/configureStore";
 
 function App() {
+    const store = configureStore();
+
     useEffect(() => {
         YTSearch({key: 'AIzaSyDTsR00_je4d0VoBRuJSnL08e8AJjH9xa8'}, (data) => {
             console.log(data)
