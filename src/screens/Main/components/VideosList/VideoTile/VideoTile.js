@@ -8,9 +8,11 @@ const VideoTile = ({videoId, videoTitle}) => {
 
   return (
       <Box
-        m={10}
+          mb={5}
       >
-        <iframe title={videoTitle} src={videoUrl} allowFullScreen height={300} width={600}/>
+        <iframe title={videoTitle} src={videoUrl} allowFullScreen height={150} width={300} style={{
+          border: '2px solid #E60B0B'
+        }}/>
       </Box>
   );
 }
