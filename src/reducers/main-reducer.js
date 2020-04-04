@@ -1,4 +1,5 @@
 import {
+  CHANGE_SEARCH_VALUE,
   FETCH_VIDEOS_FAIL,
   FETCH_VIDEOS_SUCCESS,
   START_FETCHING_VIDEOS,
@@ -7,6 +8,7 @@ import {
 
 const initState = {
   videosList: [],
+  searchValue: '',
   fetchingVideos: false,
   fetchingVideosError: false
 };
@@ -36,6 +38,12 @@ export default (state = initState, {type, payload}) => {
         ...state,
         fetchingVideos: false,
       };
+
+    case CHANGE_SEARCH_VALUE:
+      return {
+        ...state,
+        searchValue: payload
+      }
 
     default :
       return state

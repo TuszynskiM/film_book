@@ -1,7 +1,8 @@
 import React from 'react';
 import Box from '@material-ui/core/Box';
-import CustomMenu from './components/Menu/CustomMenu';
+import CustomMenu from './components/CustomMenu';
 import Title from './components/Title';
+import SearchBar from './components/SearchBar';
 
 const Header = () => {
   return (
@@ -13,7 +14,13 @@ const Header = () => {
           pt={3}
       >
         <Title/>
-        <CustomMenu/>
+        <Box
+            display='flex'
+            alignItems='center'
+        >
+          <SearchBar/>
+          <CustomMenu/>
+        </Box>
       </Box>
 
   )

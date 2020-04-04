@@ -58,7 +58,7 @@ const CustomMenu = () => {
           p={2}
       >
         <MenuIcon
-            style={{fontSize: 60, color: '#E60B0B', cursor: 'pointer'}}
+            style={{fontSize: 50, color: '#E60B0B', cursor: 'pointer', paddingTop: '5px', marginLeft: '40px'}}
             onClick={handleClick}
         />
         <StyledMenu
