@@ -5,7 +5,7 @@ import Box from '@material-ui/core/Box';
 import VideoTile from './VideoTile/VideoTile';
 
 const VideosList = ({videosList}) => {
-
+console.log('list',videosList)
   const videos = videosList.map(video => <VideoTile videoId={video.id.videoId} videoTitle={video.snippet.title}/>)
 
   return (

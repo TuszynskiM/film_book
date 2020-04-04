@@ -4,7 +4,6 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
 } from "react-router-dom";
 import {ROUTE} from "./route-config";
 import Main from "../screens/Main/Main";
@@ -19,18 +18,6 @@ function App() {
   return (
       <Provider store={store}>
         <Router>
-          <ul>
-            <li>
-              <Link to={ROUTE.HOME}>Wideo</Link>
-            </li>
-            <li>
-              <Link to={ROUTE.LOGIN}>Logowanie</Link>
-            </li>
-            <li>
-              <Link to={ROUTE.REGISTER}>Rejestracja</Link>
-            </li>
-          </ul>
-
           <Switch>
             <Route path={ROUTE.HOME}>
               <Main/>

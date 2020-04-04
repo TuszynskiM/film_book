@@ -5,7 +5,8 @@ import {bindActionCreators} from 'redux';
 import PropTypes from 'prop-types';
 import VideosList from './components/VideosList/VideosList';
 import Box from '@material-ui/core/Box';
-
+import Header from './components/Header/Header';
+/*eslint-disable*/
 const Main = ({getVideos}) => {
 
   useEffect(() => {
@@ -14,8 +15,12 @@ const Main = ({getVideos}) => {
 
   return (
       <Box
-      bgcolor='black'
+          display='flex'
+          flexDirection='column'
+          justifyContent='center'
+          alignItems='center'
       >
+        <Header/>
         <VideosList/>
       </Box>
   );
