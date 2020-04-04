@@ -1,10 +1,12 @@
-import {combineReducers, createStore} from "redux";
-import mainReducer from '../reducers/main-reducer'
+import {applyMiddleware, combineReducers, createStore} from "redux";
+import mainStore from '../reducers/main-reducer'
+import thunk from 'redux-thunk';
 
 export default () => (createStore(
         combineReducers({
-                mainReducer,
+                mainStore,
             }
         ),
+        applyMiddleware(thunk)
     )
 );
