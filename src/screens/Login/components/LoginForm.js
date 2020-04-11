@@ -8,6 +8,7 @@ import {Field, Form, Formik} from 'formik';
 import {TextField} from 'formik-material-ui';
 import {ROUTE} from '../../../App/route-config';
 import ErrorMassage from '../../shared/ErrorMassage';
+import * as Yup from 'yup';
 
 const useStyles = makeStyles(() => ({
           input: {
@@ -43,9 +44,16 @@ const useStyles = makeStyles(() => ({
             alignItems: 'center',
             flexDirection: 'column',
           }
-        }
-    )
-);
+        }));
+
+const Schema = Yup.object().shape({
+  login: Yup.string()
+      .min(6, "Podany login jest za krotki, podaj minimum 6 znaków")
+      .required("Pole jest wymagane"),
+  password: Yup.string()
+      .min(6, "Podane hasło jest za krotkie, podaj minimum 6 znaków")
+      .required("Pole jest wymagane")
+})
 
 const LoginForm = () => {
   const classes = useStyles();
@@ -74,8 +82,8 @@ const LoginForm = () => {
             login: '',
             password: '',
           }}
+          validationSchema={Schema}
           onSubmit={handleSubmit}
-
       >
         <Form>
           <Box className={classes.form}>
