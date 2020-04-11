@@ -19,19 +19,6 @@ const VideosList = ({videosList, hasSearch}) => {
           mt={10}
       >
         {videos}
-        <VideoTile videoId={'7lCDEYXw3mM'} videoTitle={'Google I/O 101: Q&A On Using Google APIs'}/>
-        <VideoTile videoId={'7lCDEYXw3mM'} videoTitle={'Google I/O 101: Q&A On Using Google APIs'}/>
-        <VideoTile videoId={'7lCDEYXw3mM'} videoTitle={'Google I/O 101: Q&A On Using Google APIs'}/>
-        <VideoTile videoId={'7lCDEYXw3mM'} videoTitle={'Google I/O 101: Q&A On Using Google APIs'}/>
-        <VideoTile videoId={'7lCDEYXw3mM'} videoTitle={'Google I/O 101: Q&A On Using Google APIs'}/>
-        <VideoTile videoId={'7lCDEYXw3mM'} videoTitle={'Google I/O 101: Q&A On Using Google APIs'}/>
-        <VideoTile videoId={'7lCDEYXw3mM'} videoTitle={'Google I/O 101: Q&A On Using Google APIs'}/>
-        <VideoTile videoId={'7lCDEYXw3mM'} videoTitle={'Google I/O 101: Q&A On Using Google APIs'}/>
-        <VideoTile videoId={'7lCDEYXw3mM'} videoTitle={'Google I/O 101: Q&A On Using Google APIs'}/>
-        <VideoTile videoId={'7lCDEYXw3mM'} videoTitle={'Google I/O 101: Q&A On Using Google APIs'}/>
-        <VideoTile videoId={'7lCDEYXw3mM'} videoTitle={'Google I/O 101: Q&A On Using Google APIs'}/>
-        <VideoTile videoId={'7lCDEYXw3mM'} videoTitle={'Google I/O 101: Q&A On Using Google APIs'}/>
-
       </Box>
   )
 }
