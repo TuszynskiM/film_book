@@ -1,10 +1,12 @@
 import React from 'react';
 import Box from '@material-ui/core/Box';
 import CustomMenu from './components/CustomMenu';
-import Title from './components/Title';
+import Title from '../../../shared/Title';
 import SearchBar from './components/SearchBar';
 
 const Header = () => {
+  const titleStyle = {paddingTop: 15, paddingLeft: 5};
+
   return (
       <Box
           width={1400}
@@ -13,7 +15,7 @@ const Header = () => {
           alignItems='center'
           pt={3}
       >
-        <Title/>
+        <Title style={titleStyle}/>
         <Box
             display='flex'
             alignItems='center'

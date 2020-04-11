@@ -22,7 +22,7 @@ function App() {
             <Route path={ROUTE.HOME}>
               <Main/>
             </Route>
-            <Route path={ROUTE.LOGIN}>
+            <Route exact path={ROUTE.LOGIN}>
               <Login/>
             </Route>
             <Route path={ROUTE.REGISTER}>

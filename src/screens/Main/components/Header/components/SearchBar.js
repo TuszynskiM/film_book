@@ -11,47 +11,48 @@ import {getVideos} from '../../../../../api/getVideos';
 import {setHasSearch} from '../../../../../actions/main-actions';
 
 const useStyles = makeStyles(() => ({
-  root: {
-    '& .MuiOutlinedInput-root': {
-      color: '#E60B0B',
-      height: '45px',
-      width: '300px',
-      '& fieldset': {
-        border: '2px solid #E60B0B',
-        borderRadius: '30px',
-        color: '#E60B0B'
-      },
-      '&:hover fieldset': {
-        borderColor: '#E60B0B',
-        color: '#E60B0B'
-      },
-      '&.Mui-focused fieldset': {
-        borderColor: '#E60B0B',
-        color: '#E60B0B'
-      },
-    },
-    '& label': {
-      color: '#E60B0B',
-    },
-    '& label.Mui-focused': {
-      color: '#E60B0B',
-    },
-  },
+          root: {
+            '& .MuiOutlinedInput-root': {
+              color: '#E60B0B',
+              height: '45px',
+              width: '300px',
+              '& fieldset': {
+                border: '2px solid #E60B0B',
+                borderRadius: '30px',
+                color: '#E60B0B'
+              },
+              '&:hover fieldset': {
+                borderColor: '#E60B0B',
+                color: '#E60B0B'
+              },
+              '&.Mui-focused fieldset': {
+                borderColor: '#E60B0B',
+                color: '#E60B0B'
+              },
+            },
+            '& label': {
+              color: '#E60B0B',
+            },
+            '& label.Mui-focused': {
+              color: '#E60B0B',
+            },
+          },
 
-  iconButton: {
-    padding: 10,
-    color: '#E60B0B',
-    '&:hover': {
-      color: '#E60B0B',
-      cursor: 'pointer',
-      fontSize: 35
-    },
-    '&:focus': {
-      color: '#E60B0B'
-    }
-  },
-
-}));
+          iconButton: {
+            padding: 10,
+            color: '#E60B0B',
+            '&:hover': {
+              color: '#E60B0B',
+              cursor: 'pointer',
+              fontSize: 35
+            },
+            '&:focus': {
+              color: '#E60B0B'
+            }
+          },
+        }
+    )
+);
 
 const SearchBar = ({getVideos, setHasSearch, hasSearch}) => {
   const classes = useStyles();
@@ -62,7 +63,7 @@ const SearchBar = ({getVideos, setHasSearch, hasSearch}) => {
   }
 
   const handleSearch = () => {
-    hasSearch ? setValue(''):  getVideos(value)
+    hasSearch ? setValue('') : getVideos(value)
     setHasSearch(!hasSearch)
   }
 
