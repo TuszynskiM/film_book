@@ -2,14 +2,13 @@ import React, {useState} from 'react';
 import {makeStyles} from '@material-ui/core/styles';
 import Box from '@material-ui/core/Box';
 import LoginBtn from './LoginBtn';
-import RegisterLinkBtn from './RegisterLinkBtn';
+import RegisterBtn from './RegisterBtn';
 import {useHistory} from 'react-router-dom';
 import {Field, Form, Formik} from 'formik';
 import {TextField} from 'formik-material-ui';
 import {ROUTE} from '../../../App/route-config';
 import ErrorMassage from '../../shared/ErrorMassage';
-
-const accounts = [{login: 'admin', password: 'admin'}]
+import * as Yup from 'yup';
 
 const useStyles = makeStyles(() => ({
           input: {
@@ -45,19 +44,30 @@ const useStyles = makeStyles(() => ({
             alignItems: 'center',
             flexDirection: 'column',
           }
-        }
-    )
-);
+        }));
+
+const Schema = Yup.object().shape({
+  login: Yup.string()
+      .min(6, "Podany login jest za krotki, podaj minimum 6 znaków")
+      .required("Pole jest wymagane"),
+  password: Yup.string()
+      .min(6, "Podane hasło jest za krotkie, podaj minimum 6 znaków")
+      .required("Pole jest wymagane")
+})
 
 const LoginForm = () => {
   const classes = useStyles();
   let history = useHistory();
-  const [account, setAccount] = useState([]);
+
   const [hasError, setHasError] = useState(false)
 
+
   const handleSubmit = (value, {resetForm}) => {
-    setAccount(accounts.filter(account => account.login === value.login && account.password === value.password));
-    if (account.length > 0) {
+    let accounts = localStorage.getItem('accounts');
+    accounts = JSON.parse(accounts);
+    const hasFound = accounts.filter(account => account.login === value.login && account.password === value.password).length > 0;
+
+    if (hasFound) {
       setHasError(false)
       history.push(ROUTE.HOME)
     } else
@@ -70,12 +80,12 @@ const LoginForm = () => {
       <Formik
           initialValues={{
             login: '',
-            password: ''
+            password: '',
           }}
+          validationSchema={Schema}
           onSubmit={handleSubmit}
-
       >
-        <Form >
+        <Form>
           <Box className={classes.form}>
             <Field
                 component={TextField}
@@ -101,7 +111,7 @@ const LoginForm = () => {
 
           </Box>
           <LoginBtn/>
-          <RegisterLinkBtn/>
+          <RegisterBtn/>
         </Form>
       </Formik>
   )
