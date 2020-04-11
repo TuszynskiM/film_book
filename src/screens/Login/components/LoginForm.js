@@ -2,13 +2,13 @@ import React, {useState} from 'react';
 import {makeStyles} from '@material-ui/core/styles';
 import Box from '@material-ui/core/Box';
 import LoginBtn from './LoginBtn';
-import RegisterBtn from './RegisterBtn';
 import {useHistory} from 'react-router-dom';
 import {Field, Form, Formik} from 'formik';
 import {TextField} from 'formik-material-ui';
 import {ROUTE} from '../../../App/route-config';
 import ErrorMassage from '../../shared/ErrorMassage';
 import * as Yup from 'yup';
+import RegisterLinkBtn from './RegisterLinkBtn';
 
 const useStyles = makeStyles(() => ({
           input: {
@@ -111,7 +111,7 @@ const LoginForm = () => {
 
           </Box>
           <LoginBtn/>
-          <RegisterBtn/>
+          <RegisterLinkBtn/>
         </Form>
       </Formik>
   )
