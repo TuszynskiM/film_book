@@ -9,8 +9,6 @@ import {TextField} from 'formik-material-ui';
 import {ROUTE} from '../../../App/route-config';
 import ErrorMassage from '../../shared/ErrorMassage';
 
-const accounts = [{login: 'admin', haslo: 'admin'}]
-
 const useStyles = makeStyles(() => ({
           input: {
             '& .MuiOutlinedInput-root': {
@@ -52,12 +50,16 @@ const useStyles = makeStyles(() => ({
 const LoginForm = () => {
   const classes = useStyles();
   let history = useHistory();
-  const [account, setAccount] = useState([]);
+
   const [hasError, setHasError] = useState(false)
 
+
   const handleSubmit = (value, {resetForm}) => {
-    setAccount(accounts.filter(account => account.login === value.login && account.haslo === value.haslo));
-    if (account.length > 0) {
+    let accounts = localStorage.getItem('accounts');
+    accounts = JSON.parse(accounts);
+    const hasFound = accounts.filter(account => account.login === value.login && account.password === value.password).length > 0;
+
+    if (hasFound) {
       setHasError(false)
       history.push(ROUTE.HOME)
     } else
@@ -70,12 +72,12 @@ const LoginForm = () => {
       <Formik
           initialValues={{
             login: '',
-            haslo: ''
+            password: '',
           }}
           onSubmit={handleSubmit}
 
       >
-        <Form >
+        <Form>
           <Box className={classes.form}>
             <Field
                 component={TextField}
@@ -88,7 +90,7 @@ const LoginForm = () => {
             />
             <Field
                 component={TextField}
-                name='haslo'
+                name='password'
                 type='password'
                 label='Hasło'
                 variant="outlined"
