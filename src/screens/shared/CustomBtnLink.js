@@ -1,7 +1,6 @@
 import React from 'react';
 import Box from '@material-ui/core/Box';
-import {ROUTE} from '../../../App/route-config';
-import {useHistory} from "react-router-dom";
+import PropTypes from 'prop-types';
 import {makeStyles} from '@material-ui/core/styles';
 
 const useStyles = makeStyles(() => ({
@@ -20,15 +19,19 @@ const useStyles = makeStyles(() => ({
     )
 );
 
-const RegisterBtn = () => {
+const CustomBtnLink = ({children, handleClick}) => {
   const classes = useStyles();
-  let history = useHistory();
 
   return (
-      <Box className={classes.link} onClick={() => history.push(ROUTE.REGISTER)}>
-        Zarejestruj się
+      <Box className={classes.link} onClick={handleClick}>
+        {children}
       </Box>
   );
 }
 
-export default RegisterBtn;
+CustomBtnLink.propTypes = {
+  children: PropTypes.node,
+  handleClick: PropTypes.func.isRequired
+}
+
+export default CustomBtnLink;

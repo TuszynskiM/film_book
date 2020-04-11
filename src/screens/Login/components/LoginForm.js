@@ -2,14 +2,14 @@ import React, {useState} from 'react';
 import {makeStyles} from '@material-ui/core/styles';
 import Box from '@material-ui/core/Box';
 import LoginBtn from './LoginBtn';
-import RegisterBtn from './RegisterBtn';
+import RegisterLinkBtn from './RegisterLinkBtn';
 import {useHistory} from 'react-router-dom';
 import {Field, Form, Formik} from 'formik';
 import {TextField} from 'formik-material-ui';
 import {ROUTE} from '../../../App/route-config';
 import ErrorMassage from '../../shared/ErrorMassage';
 
-const accounts = [{login: 'admin', haslo: 'admin'}]
+const accounts = [{login: 'admin', password: 'admin'}]
 
 const useStyles = makeStyles(() => ({
           input: {
@@ -56,7 +56,7 @@ const LoginForm = () => {
   const [hasError, setHasError] = useState(false)
 
   const handleSubmit = (value, {resetForm}) => {
-    setAccount(accounts.filter(account => account.login === value.login && account.haslo === value.haslo));
+    setAccount(accounts.filter(account => account.login === value.login && account.password === value.password));
     if (account.length > 0) {
       setHasError(false)
       history.push(ROUTE.HOME)
@@ -70,7 +70,7 @@ const LoginForm = () => {
       <Formik
           initialValues={{
             login: '',
-            haslo: ''
+            password: ''
           }}
           onSubmit={handleSubmit}
 
@@ -88,7 +88,7 @@ const LoginForm = () => {
             />
             <Field
                 component={TextField}
-                name='haslo'
+                name='password'
                 type='password'
                 label='Hasło'
                 variant="outlined"
@@ -101,7 +101,7 @@ const LoginForm = () => {
 
           </Box>
           <LoginBtn/>
-          <RegisterBtn/>
+          <RegisterLinkBtn/>
         </Form>
       </Formik>
   )
