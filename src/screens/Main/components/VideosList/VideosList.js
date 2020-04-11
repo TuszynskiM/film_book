@@ -3,10 +3,11 @@ import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import Box from '@material-ui/core/Box';
 import VideoTile from './VideoTile/VideoTile';
+import {movies} from '../../../../dataBase/dataBase';
 
-const VideosList = ({videosList}) => {
-console.log('list',videosList)
-  const videos = videosList.map(video => <VideoTile videoId={video.id.videoId} videoTitle={video.snippet.title}/>)
+const VideosList = ({videosList, hasSearch}) => {
+  const movieList = hasSearch ? videosList : movies;
+  const videos = movieList.map(video => <VideoTile videoId={video.id.videoId} videoTitle={video.snippet.title}/>);
 
   return (
       <Box
@@ -36,11 +37,13 @@ console.log('list',videosList)
 }
 
 VideosList.propTyeps = {
-  videosList: PropTypes.array.isRequired
+  videosList: PropTypes.array.isRequired,
+  hasSearch: PropTypes.bool.isRequired
 }
 
 const mapStateToProps = state => ({
-  videosList: state.mainStore.videosList
+  videosList: state.mainStore.videosList,
+  hasSearch: state.mainStore.hasSearch
 })
 
 export default connect(mapStateToProps)(VideosList);

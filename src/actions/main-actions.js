@@ -5,7 +5,7 @@ export const STOP_FETCHING_VIDEOS = 'STOP_FETCHING_VIDEOS';
 export const FETCH_VIDEOS_SUCCESS = 'FETCH_VIDEOS_SUCCESS';
 export const FETCH_VIDEOS_FAIL = 'FETCH_VIDEOS_FAIL';
 
-export const CHANGE_SEARCH_VALUE = 'CHANGE_SEARCH_VALUE';
+export const HAS_SEARCH = 'HAS_SEARCH';
 
 //action creators
 
@@ -24,7 +24,7 @@ export const fetchingVideosFail = payload => ({
   payload
 })
 
-export const changeSearchValue = payload =>({
-  type: CHANGE_SEARCH_VALUE,
+export const setHasSearch = payload => ({
+  type: HAS_SEARCH,
   payload
-})
+});

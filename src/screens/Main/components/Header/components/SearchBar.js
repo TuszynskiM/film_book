@@ -1,12 +1,14 @@
 import React, {useState} from "react";
 import SearchIcon from '@material-ui/icons/Search';
+import ClearIcon from '@material-ui/icons/Clear';
 import {makeStyles} from '@material-ui/core/styles'
 import InputAdornment from '@material-ui/core/InputAdornment';
 import TextField from '@material-ui/core/TextField';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import {bindActionCreators} from 'redux';
-import {changeSearchValue} from '../../../../../actions/main-actions';
+import {getVideos} from '../../../../../api/getVideos';
+import {setHasSearch} from '../../../../../actions/main-actions';
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -40,7 +42,9 @@ const useStyles = makeStyles(() => ({
     padding: 10,
     color: '#E60B0B',
     '&:hover': {
-      color: '#E60B0B'
+      color: '#E60B0B',
+      cursor: 'pointer',
+      fontSize: 35
     },
     '&:focus': {
       color: '#E60B0B'
@@ -49,25 +53,31 @@ const useStyles = makeStyles(() => ({
 
 }));
 
-const SearchBar = ({searchValue, changeSearchValue}) => {
+const SearchBar = ({getVideos, setHasSearch, hasSearch}) => {
   const classes = useStyles();
-
+  const [value, setValue] = useState('')
 
   const handleChange = (event) => {
-    changeSearchValue(event.target.value)
+    setValue(event.target.value)
+  }
+
+  const handleSearch = () => {
+    hasSearch ? setValue(''):  getVideos(value)
+    setHasSearch(!hasSearch)
   }
 
   return (
       <TextField
           className={classes.root}
-          value={searchValue}
+          value={value}
           onChange={handleChange}
           variant='outlined'
           label="Szukaj"
           InputProps={{
             startAdornment: (
                 <InputAdornment position="start">
-                  <SearchIcon className={classes.iconButton}/>
+                  {hasSearch ? <ClearIcon className={classes.iconButton} onClick={handleSearch}/> :
+                      <SearchIcon className={classes.iconButton} onClick={handleSearch}/>}
                 </InputAdornment>
             ),
           }}
@@ -76,16 +86,19 @@ const SearchBar = ({searchValue, changeSearchValue}) => {
 }
 
 SearchBar.propTypes = {
-  searchValue: PropTypes.string.isRequired,
-  changeSearchValue: PropTypes.func.isRequired
+  setHasSearch: PropTypes.func.isRequired,
+  getVideos: PropTypes.func.isRequired,
+  hasSearch: PropTypes.bool.isRequired
 }
 
 const mapStateToProps = state => ({
-  searchValue: state.mainStore.searchValue
+  hasSearch: state.mainStore.hasSearch
 })
 
+
 const mapDispatchToProps = dispatch => bindActionCreators({
-  changeSearchValue: changeSearchValue
+  getVideos: getVideos,
+  setHasSearch: setHasSearch
 }, dispatch)
 
 export default connect(mapStateToProps, mapDispatchToProps)(SearchBar);

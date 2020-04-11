@@ -1,14 +1,13 @@
 import {
-  CHANGE_SEARCH_VALUE,
   FETCH_VIDEOS_FAIL,
-  FETCH_VIDEOS_SUCCESS,
+  FETCH_VIDEOS_SUCCESS, HAS_SEARCH,
   START_FETCHING_VIDEOS,
   STOP_FETCHING_VIDEOS
 } from '../actions/main-actions';
 
 const initState = {
   videosList: [],
-  searchValue: '',
+  hasSearch: false,
   fetchingVideos: false,
   fetchingVideosError: false
 };
@@ -39,10 +38,10 @@ export default (state = initState, {type, payload}) => {
         fetchingVideos: false,
       };
 
-    case CHANGE_SEARCH_VALUE:
+    case HAS_SEARCH:
       return {
         ...state,
-        searchValue: payload
+        hasSearch: payload
       }
 
     default :
