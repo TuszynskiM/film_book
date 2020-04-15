@@ -2,23 +2,22 @@ import React from 'react';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import Box from '@material-ui/core/Box';
-import VideoTile from './VideoTile/VideoTile';
-import {movies} from '../../../../dataBase/dataBase';
+import {movies} from '../../../../../../dataBase/dataBase';
+import VideoTile from './VideoTile';
 
-const VideosList = ({videosList, hasSearch}) => {
+const VideosList = ({videosList, hasSearch, position}) => {
   const movieList = hasSearch ? videosList : movies;
   const videos = movieList.map(video => <VideoTile videoId={video.id.videoId} videoTitle={video.snippet.title}/>);
 
   return (
       <Box
-          width={1400}
-          height={200}
-          display='flex'
-          flexWrap='wrap'
-          justifyContent='space-between'
-          mt={10}
+          width={1398}
+          height={330}
+          overflow='hidden'
       >
+        <Box display='flex' style={{transform: `translateX(${position}px)`, transition:'1s'}}>
         {videos}
+        </Box>
       </Box>
   )
 }

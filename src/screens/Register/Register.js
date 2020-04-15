@@ -1,6 +1,6 @@
 import React from "react";
 import Box from '@material-ui/core/Box';
-import Title from '../shared/Title';
+import FilmbookTitle from '../shared/FilmbookTitle';
 import RegisterForm from './components/RegisterForm';
 import ReturnLinkBtn from './components/ReturnLinkBtn';
 
@@ -12,7 +12,7 @@ const Register = () => (
         justifyContent='center'
         alignItems='center'
     >
-      <Title style={{fontSize: 100}}/>
+      <FilmbookTitle style={{fontSize: 100}}/>
       <RegisterForm/>
       <ReturnLinkBtn/>
     </Box>

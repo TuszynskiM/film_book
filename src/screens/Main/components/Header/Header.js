@@ -1,7 +1,7 @@
 import React from 'react';
 import Box from '@material-ui/core/Box';
 import CustomMenu from './components/CustomMenu';
-import Title from '../../../shared/Title';
+import FilmbookTitle from '../../../shared/FilmbookTitle';
 import SearchBar from './components/SearchBar';
 
 const Header = () => {
@@ -14,8 +14,9 @@ const Header = () => {
           justifyContent='space-between'
           alignItems='center'
           pt={3}
+          mb={8}
       >
-        <Title style={titleStyle}/>
+        <FilmbookTitle style={titleStyle}/>
         <Box
             display='flex'
             alignItems='center'

@@ -8,7 +8,7 @@ const VideoTile = ({videoId, videoTitle}) => {
 
   return (
       <Box
-          mb={2}
+          mr={2}
       >
         <iframe title={videoTitle} src={videoUrl} allowFullScreen height={300} width={450}/>
       </Box>

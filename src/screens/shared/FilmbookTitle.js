@@ -2,7 +2,7 @@ import React from 'react';
 import Box from '@material-ui/core/Box';
 import PropTypes from 'prop-types';
 
-const Title = ({style}) => (
+const FilmbookTitle = ({style}) => (
     <Box
         fontSize={70}
         fontFamily='Bangers'
@@ -12,8 +12,8 @@ const Title = ({style}) => (
     </Box>
 );
 
-Title.propTypes ={
+FilmbookTitle.propTypes ={
   style:PropTypes.object
 }
 
-export default Title;
+export default FilmbookTitle;

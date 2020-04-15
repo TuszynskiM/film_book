@@ -1,7 +1,7 @@
 import React from "react";
-import VideosList from './components/VideosList/VideosList';
 import Box from '@material-ui/core/Box';
 import Header from './components/Header/Header';
+import Category from './components/Category/Category';
 
 const Main = () => (
     <Box
@@ -11,7 +11,7 @@ const Main = () => (
         alignItems='center'
     >
       <Header/>
-      <VideosList/>
+      <Category/>
     </Box>
 );
 

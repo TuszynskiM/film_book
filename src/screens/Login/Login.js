@@ -1,6 +1,6 @@
 import React from "react";
 import Box from '@material-ui/core/Box';
-import Title from '../shared/Title';
+import FilmbookTitle from '../shared/FilmbookTitle';
 import LoginForm from './components/LoginForm';
 
 const Login = () => (
@@ -11,7 +11,7 @@ const Login = () => (
         justifyContent='center'
         alignItems='center'
     >
-      <Title style={{fontSize: 100}}/>
+      <FilmbookTitle style={{fontSize: 100}}/>
       <LoginForm/>
     </Box>
 );
