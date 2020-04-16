@@ -7,6 +7,8 @@ export const FETCH_VIDEOS_FAIL = 'FETCH_VIDEOS_FAIL';
 
 export const HAS_SEARCH = 'HAS_SEARCH';
 
+export const SWITCH_SETTING_MODAL = 'SWITCH_SETTING_MODAL';
+
 //action creators
 
 export const startFetchingVideos = () => ({
@@ -28,3 +30,8 @@ export const setHasSearch = payload => ({
   type: HAS_SEARCH,
   payload
 });
+
+export const switchSettingModal = payload=>({
+  type: SWITCH_SETTING_MODAL,
+  payload
+})

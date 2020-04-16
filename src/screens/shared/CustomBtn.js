@@ -7,6 +7,7 @@ const useStyles = makeStyles(() => ({
           button: {
             width: 390,
             height:55,
+            margin: '40px 0',
             borderRadius: 30,
             color: '#000',
             backgroundColor: '#E60B0B',
@@ -18,22 +19,20 @@ const useStyles = makeStyles(() => ({
               backgroundColor: '#af1111',
             }
           }
-        }
-    )
-);
+        }));
 
-const CustomBtn = ({children}) => {
+const CustomBtn = ({btnText}) => {
   const classes = useStyles();
 
   return (
       <Button className={classes.button} variant="contained" type='submit' >
-        {children}
+        {btnText}
       </Button>
   )
 }
 
 CustomBtn.propTypes ={
-  children: PropTypes.node,
+  btnText: PropTypes.string.isRequired,
 };
 
 export default CustomBtn;

@@ -5,11 +5,10 @@ import CustomBtnLink from '../../shared/CustomBtnLink';
 
 const RegisterLinkBtn = () => {
   let history = useHistory();
+  const btnText = 'Zarejestruj się';
 
   return (
-      <CustomBtnLink handleClick={() => history.push(ROUTE.REGISTER)}>
-          Zarejestruj się
-      </CustomBtnLink>
+      <CustomBtnLink handleClick={() => history.push(ROUTE.REGISTER)} btnText={btnText}/>
   );
 }
 

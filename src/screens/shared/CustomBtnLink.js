@@ -19,19 +19,19 @@ const useStyles = makeStyles(() => ({
     )
 );
 
-const CustomBtnLink = ({children, handleClick}) => {
+const CustomBtnLink = ({ handleClick, btnText}) => {
   const classes = useStyles();
 
   return (
       <Box className={classes.link} onClick={handleClick}>
-        {children}
+        {btnText}
       </Box>
   );
 }
 
 CustomBtnLink.propTypes = {
-  children: PropTypes.node,
-  handleClick: PropTypes.func.isRequired
+  handleClick: PropTypes.func.isRequired,
+  btnText: PropTypes.string.isRequired
 }
 
 export default CustomBtnLink;

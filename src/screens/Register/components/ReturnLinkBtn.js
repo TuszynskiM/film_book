@@ -6,12 +6,10 @@ import Box from '@material-ui/core/Box';
 
 const ReturnLinkBtn = () => {
   let history = useHistory();
-
+  const btnText = 'Powrót';
   return (
       <Box mt={3}>
-        <CustomBtnLink handleClick={() => history.push(ROUTE.LOGIN)}>
-          Powrót
-        </CustomBtnLink>
+        <CustomBtnLink handleClick={() => history.push(ROUTE.LOGIN)} btnText={btnText}/>
       </Box>
   )
 }

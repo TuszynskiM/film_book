@@ -2,11 +2,12 @@ import {
   FETCH_VIDEOS_FAIL,
   FETCH_VIDEOS_SUCCESS, HAS_SEARCH,
   START_FETCHING_VIDEOS,
-  STOP_FETCHING_VIDEOS
+  STOP_FETCHING_VIDEOS, SWITCH_SETTING_MODAL
 } from '../actions/main-actions';
 
 const initState = {
   videosList: [],
+  hasModalOpen: false,
   hasSearch: false,
   fetchingVideos: false,
   fetchingVideosError: false
@@ -42,6 +43,12 @@ export default (state = initState, {type, payload}) => {
       return {
         ...state,
         hasSearch: payload
+      }
+
+    case SWITCH_SETTING_MODAL:
+      return {
+        ...state,
+        hasModalOpen: payload
       }
 
     default :
