@@ -1,5 +1,5 @@
 import React from 'react';
-import CustomBtn from '../../shared/CustomBtn';
+import CustomBtn from '../../shared/components/CustomBtn';
 import Box from '@material-ui/core/Box';
 
 const LoginBtn = () => {

@@ -7,8 +7,6 @@ import CustomNavigation from './components/CustomNavigation/CustomNavigation';
 const Category = () => {
   const [position, setPosition] = useState(0);
 
-
-
   return (
       <Box>
         <CategoryTitle title={'Horror'}/>

@@ -6,13 +6,10 @@ import SectionTitle from './componetns/SectionTitle';
 
 const useStyle =makeStyles(()=>({
   section:{
-    margin:'40px 0'
+    margin:'40px ',
+    textAlign: 'center',
+    fontWeight: 'bold',
   },
-  line:{
-    width: '1200px',
-    height:'2px',
-    /*    boxShadow: '0 0 2px #E60B0B'*/
-  }
 }));
 
 const SettingSection = ({children, sectionTitle}) => {
@@ -20,7 +17,6 @@ const SettingSection = ({children, sectionTitle}) => {
 
   return (
       <Box className={classes.section}>
-        <Box className={classes.line}/>
         <SectionTitle text={sectionTitle}/>
         {children}
       </Box>

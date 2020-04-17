@@ -1,9 +1,9 @@
 import React from 'react';
 import DeleteAccountForm from './DeleteAccountForm';
-import SettingSection from '../../../../shared/SettingSection/SettingSection';
+import SettingSection from '../../../../../shared/components/SettingSection/SettingSection';
 
 const DeleteAccount = () => {
-  const title = 'Zmiana hasła';
+  const title = 'Usuń hasło';
 
   return (
       <SettingSection sectionTitle={title}>

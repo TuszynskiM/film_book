@@ -7,7 +7,7 @@ import {useHistory} from 'react-router-dom';
 import {ROUTE} from '../../../../../App/route-config';
 import PropTypes from 'prop-types';
 import {bindActionCreators} from 'redux';
-import {switchSettingModal} from '../../../../../actions/main-actions';
+import {switchSettingModal} from '../../../main-actions';
 import {connect} from 'react-redux';
 
 const useStyle = makeStyles(() => ({

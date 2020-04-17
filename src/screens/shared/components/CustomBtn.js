@@ -13,7 +13,7 @@ const useStyles = makeStyles(() => ({
             backgroundColor: '#E60B0B',
             fontFamily:'Montserrat',
             fontWeight:'bold',
-            fontSize: 18,
+            fontSize: 14,
             '&:hover':{
               color: '#000',
               backgroundColor: '#af1111',

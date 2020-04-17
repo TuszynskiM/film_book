@@ -1,7 +1,7 @@
 import React from 'react';
 import * as Yup from 'yup';
-import CustomForm from '../../../../shared/CustomForm';
-import CustomBtn from '../../../../shared/CustomBtn';
+import CustomForm from '../../../../../shared/components/CustomForm';
+import CustomBtn from '../../../../../shared/components/CustomBtn';
 
 const Schema = Yup.object().shape({
   currentPassword: Yup.string()

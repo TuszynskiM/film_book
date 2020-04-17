@@ -3,11 +3,11 @@ import {
   FETCH_VIDEOS_SUCCESS, HAS_SEARCH,
   START_FETCHING_VIDEOS,
   STOP_FETCHING_VIDEOS, SWITCH_SETTING_MODAL
-} from '../actions/main-actions';
+} from './main-actions';
 
 const initState = {
   videosList: [],
-  hasModalOpen: false,
+  hasModalOpen: true,
   hasSearch: false,
   fetchingVideos: false,
   fetchingVideosError: false

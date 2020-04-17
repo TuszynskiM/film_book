@@ -1,7 +1,7 @@
 import React from 'react';
 import {ROUTE} from '../../../App/route-config';
 import {useHistory} from "react-router-dom";
-import CustomBtnLink from '../../shared/CustomBtnLink';
+import CustomBtnLink from '../../shared/components/CustomBtnLink';
 
 const RegisterLinkBtn = () => {
   let history = useHistory();

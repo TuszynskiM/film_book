@@ -1,7 +1,7 @@
 import React from 'react';
 import Box from '@material-ui/core/Box';
 import CustomMenu from './components/CustomMenu';
-import FilmbookTitle from '../../../shared/FilmbookTitle';
+import FilmbookTitle from '../../../shared/components/FilmbookTitle';
 import SearchBar from './components/SearchBar';
 
 const Header = () => {

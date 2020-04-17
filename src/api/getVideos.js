@@ -1,4 +1,4 @@
-import {fetchingVideosFail, fetchVideosSuccess, startFetchingVideos, stopFetchingVideos} from '../actions/main-actions';
+import {fetchingVideosFail, fetchVideosSuccess, startFetchingVideos, stopFetchingVideos} from '../screens/Main/main-actions';
 import {getDataFromUrl} from './generalAPI';
 /*eslint-disable*/
 export const getVideos = (searchText) => {

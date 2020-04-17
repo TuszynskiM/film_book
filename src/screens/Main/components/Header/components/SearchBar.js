@@ -8,7 +8,7 @@ import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import {bindActionCreators} from 'redux';
 import {getVideos} from '../../../../../api/getVideos';
-import {setHasSearch} from '../../../../../actions/main-actions';
+import {setHasSearch} from '../../../main-actions';
 
 const useStyles = makeStyles(() => ({
           root: {

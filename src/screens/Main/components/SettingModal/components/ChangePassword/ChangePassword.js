@@ -1,9 +1,9 @@
 import React from 'react';
 import ChangePasswordForm from './ChangePasswordForm';
-import SettingSection from '../../../../shared/SettingSection/SettingSection';
+import SettingSection from '../../../../../shared/components/SettingSection/SettingSection';
 
 const ChangePassword = () => {
-  const title = 'Usuń konto';
+  const title = 'Zmień hasło';
   return (
       <SettingSection sectionTitle={title}>
         <ChangePasswordForm/>

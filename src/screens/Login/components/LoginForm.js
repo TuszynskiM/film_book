@@ -6,7 +6,7 @@ import {useHistory} from 'react-router-dom';
 import {Field, Form, Formik} from 'formik';
 import {TextField} from 'formik-material-ui';
 import {ROUTE} from '../../../App/route-config';
-import ErrorMassage from '../../shared/ErrorMassage';
+import ErrorMassage from '../../shared/components/ErrorMassage';
 import * as Yup from 'yup';
 import RegisterLinkBtn from './RegisterLinkBtn';
 
