@@ -1,17 +1,14 @@
-import React, {useState} from 'react';
-import VideosList from './components/VideosList/VideosList';
+import React from 'react';
 import Box from '@material-ui/core/Box';
-import CategoryTitle from './components/CategoryTitle';
-import CustomNavigation from './components/CustomNavigation/CustomNavigation';
+import {movieCategory} from './categoryConfig';
+import CategorySection from './components/CategorySection';
+
 
 const Category = () => {
-  const [position, setPosition] = useState(0);
-
+const categories = movieCategory.map(category=><CategorySection key={category.id} type={category.type} db={category.db}/>)
   return (
       <Box>
-        <CategoryTitle title={'Horror'}/>
-        <VideosList position={position}/>
-        <CustomNavigation setPosition={setPosition}/>
+        {categories}
       </Box>
   )
 };

@@ -1,35 +1,40 @@
-import React from 'react';
-import {connect} from 'react-redux';
+import React, {useState} from 'react';
 import PropTypes from 'prop-types';
 import Box from '@material-ui/core/Box';
-import {movies} from '../../../../../../dataBase/dataBase';
 import VideoTile from './VideoTile';
+import CustomNavigation from '../CustomNavigation/CustomNavigation';
 
-const VideosList = ({videosList, hasSearch, position}) => {
-  const movieList = hasSearch ? videosList : movies;
-  const videos = movieList.map(video => <VideoTile videoId={video.id.videoId} videoTitle={video.snippet.title}/>);
+const VideosList = ({db}) => {
+  const [index, setIndex] = useState(0);
+
+  const videos = db.map(video => <VideoTile key={video.id.videoId} videoId={video.id.videoId} videoTitle={video.snippet.title}/>);
+
+  index < 0 && setIndex(db.length - 1)
+  index > db.length - 1 && setIndex(0)
+
+  let leftIndex = index - 1 < 0 ? db.length - 1 : index - 1;
+  let rightItems = index + 1 > db.length - 1 ? 0 : index + 1;
 
   return (
-      <Box
-          width={1398}
-          height={330}
-          overflow='hidden'
-      >
-        <Box display='flex' style={{transform: `translateX(${position}px)`, transition:'1s'}}>
-        {videos}
+      <Box>
+        <Box
+            width={1398}
+            height={330}
+            overflow='hidden'
+        >
+          <Box display='flex' style={{transition: '1s'}}>
+            {videos[leftIndex]}
+            {videos[index]}
+            {videos[rightItems]}
+          </Box>
         </Box>
+        <CustomNavigation setIndex={setIndex}/>
       </Box>
   )
 }
 
 VideosList.propTyeps = {
-  videosList: PropTypes.array.isRequired,
-  hasSearch: PropTypes.bool.isRequired
+  db: PropTypes.array.isRequired
 }
 
-const mapStateToProps = state => ({
-  videosList: state.mainStore.videosList,
-  hasSearch: state.mainStore.hasSearch
-})
-
-export default connect(mapStateToProps)(VideosList);
+export default VideosList;

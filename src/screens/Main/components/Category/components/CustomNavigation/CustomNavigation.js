@@ -4,18 +4,18 @@ import LeftArrow from './LeftArrow';
 import RightArrow from './RightArrow';
 import PropTypes from 'prop-types';
 
-const CustomNavigation = ({setPosition}) => {
+const CustomNavigation = ({setIndex}) => {
 
   return (
       <Box display='flex' justifyContent='center' alignItems='center' height={45}>
-        <LeftArrow setPosition={setPosition}/>
-        <RightArrow setPosition={setPosition}/>
+        <LeftArrow setIndex={setIndex}/>
+        <RightArrow setIndex={setIndex}/>
       </Box>
   )
 };
 
 CustomNavigation.propTypes = {
-  setPosition: PropTypes.func.isRequired
+  setIndex: PropTypes.func.isRequired
 }
 
 export default CustomNavigation;

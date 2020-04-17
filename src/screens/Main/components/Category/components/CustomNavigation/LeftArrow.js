@@ -17,10 +17,10 @@ const useStyle = makeStyles(() => ({
   }
 }));
 
-const LeftArrow = ({setPosition}) => {
+const LeftArrow = ({setIndex}) => {
   const classes = useStyle();
   const handleMoveLeft = () => {
-    setPosition(prevState => prevState - 470)
+    setIndex(prevState => prevState + 1)
   }
 
   return (
@@ -31,7 +31,7 @@ const LeftArrow = ({setPosition}) => {
 };
 
 LeftArrow.propTypes = {
-  setPosition: PropTypes.func.isRequired
+  setIndex: PropTypes.func.isRequired
 }
 
 export default LeftArrow;

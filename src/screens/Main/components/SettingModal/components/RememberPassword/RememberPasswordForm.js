@@ -24,7 +24,7 @@ const inputConfig = [
   {
     name: 'email',
     type: 'email',
-    label: 'email'
+    label: 'Email'
   }
 ]
 

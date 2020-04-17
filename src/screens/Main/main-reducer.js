@@ -7,7 +7,7 @@ import {
 
 const initState = {
   videosList: [],
-  hasModalOpen: true,
+  hasModalOpen: false,
   hasSearch: false,
   fetchingVideos: false,
   fetchingVideosError: false
