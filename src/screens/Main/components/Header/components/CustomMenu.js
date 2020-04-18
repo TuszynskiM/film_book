@@ -37,6 +37,7 @@ const CustomMenu = ({switchSettingModal}) => {
 
 
   const handleLogout = () => {
+    localStorage.removeItem('logged')
     history.push(ROUTE.LOGIN)
   }
 

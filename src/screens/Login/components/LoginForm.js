@@ -68,6 +68,7 @@ const LoginForm = () => {
 
         if (hasFound) {
             setHasError(false)
+            localStorage.setItem('logged', JSON.stringify(true))
             history.push(ROUTE.HOME)
         } else
             setHasError(true)

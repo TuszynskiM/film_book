@@ -11,6 +11,7 @@ import Login from "../screens/Login/Login";
 import Register from "../screens/Register/Register";
 import {Provider} from "react-redux";
 import configureStore from "../store/configureStore";
+import Authorization from '../screens/Authorization/Authorization';
 
 function App() {
   const store = configureStore();
@@ -27,6 +28,9 @@ function App() {
             </Route>
             <Route path={ROUTE.REGISTER}>
               <Register/>
+            </Route>
+            <Route path={ROUTE.AUTHORIZATION}>
+              <Authorization/>
             </Route>
           </Switch>
         </Router>
