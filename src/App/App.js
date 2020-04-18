@@ -32,6 +32,9 @@ function App() {
             <Route path={ROUTE.AUTHORIZATION}>
               <Authorization/>
             </Route>
+            <Route>
+              <Login/>
+            </Route>
           </Switch>
         </Router>
       </Provider>
