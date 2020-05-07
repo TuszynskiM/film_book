@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import Box from '@material-ui/core/Box';
 import CategoryTitle from './CategoryTitle';
 import VideosList from './VideosList/VideosList';

@@ -10,7 +10,7 @@ const Login = () => {
 
   useEffect(()=>{
     JSON.parse(localStorage.getItem('logged')) && history.push(ROUTE.HOME)
-  }, [])
+  })
 
   return(
       <Box

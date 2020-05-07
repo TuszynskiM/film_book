@@ -12,7 +12,7 @@ const Main = () => {
 
   useEffect(() => {
     !isLogged && history.push(ROUTE.AUTHORIZATION)
-  }, [])
+  });
 
   return (
       <Box
