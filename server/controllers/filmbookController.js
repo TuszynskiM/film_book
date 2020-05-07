@@ -2,10 +2,10 @@ const mongoose = require('mongoose'),
     Accounts = mongoose.model('Accounts');
 
 exports.list_all_accounts = function(req, res) {
-  Accounts.find({}, function(err, task) {
+  Accounts.find({}, function(err, account) {
     if (err)
       res.send(err);
-    res.json(task);
+    res.json(account);
   });
 };
 
@@ -13,8 +13,8 @@ exports.list_all_accounts = function(req, res) {
 
 
 exports.create_a_account = function(req, res) {
-  const new_task = new Accounts(req.body);
-  new_task.save(function(err, account) {
+  const new_account = new Accounts(req.body);
+  new_account.save(function(err, account) {
     if (err)
       res.send(err);
     res.json(account);

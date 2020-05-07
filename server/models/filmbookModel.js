@@ -5,11 +5,13 @@ const Schema = mongoose.Schema;
 const AccountSchema = new Schema({
   login: {
     type: String,
-    required: 'Login jest wymagany'
+    required: 'Login jest wymagany',
+    unique: true
   },
   email: {
     type: String,
-    required: 'Email jest wymagany'
+    required: 'Email jest wymagany',
+    unique: true
   },
   password:{
     type: String,
