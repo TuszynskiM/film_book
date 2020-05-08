@@ -7,8 +7,8 @@ import {modalBtnConfig} from '../../settingConfig';
 
 const ModalNav = ({setOption}) => {
   return (
-      <Box display='flex' justifyContent='space-around' mt={3}>
-        {modalBtnConfig.map(btn => <ModalNavBtn btnText={btn.name} setOption={()=> setOption(btn.option)}/>)}
+      <Box display='flex' justifyContent='center' mt={3}>
+        {modalBtnConfig.map(btn => <ModalNavBtn key={btn.name} btnText={btn.name} setOption={()=> setOption(btn.option)}/>)}
       </Box>
   )
 };

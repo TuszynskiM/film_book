@@ -3,6 +3,7 @@ import {Field, Form, Formik} from 'formik';
 import {TextField} from 'formik-material-ui';
 import {makeStyles} from '@material-ui/core/styles';
 import PropTypes from 'prop-types'
+import ErrorMassage from "./ErrorMassage";
 
 const useStyles = makeStyles(() => ({
   form: {
@@ -40,13 +41,12 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-const CustomForm = ({children, initialValue, validationSchema, inputConfig}) => {
+const CustomForm = ({children, initialValue, validationSchema, inputConfig, handleSubmit, message =''}) => {
   const classes = useStyles();
 
   return (
       <Formik
-          onSubmit={() => {
-          }}
+          onSubmit={handleSubmit}
           initialValues={initialValue}
           validationSchema={validationSchema}
       >
@@ -71,7 +71,9 @@ CustomForm.propTypes = {
   children: PropTypes.node,
   initialValue: PropTypes.object.isRequired,
   validationSchema: PropTypes.object.isRequired,
-  inputConfig: PropTypes.array.isRequired
+  inputConfig: PropTypes.array.isRequired,
+  handleSubmit: PropTypes.func.isRequired,
+  message: PropTypes.string.isRequired
 }
 
 export default CustomForm;

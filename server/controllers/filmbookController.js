@@ -10,8 +10,6 @@ exports.list_all_accounts = function(req, res) {
 };
 
 
-
-
 exports.create_a_account = function(req, res) {
   const new_account = new Accounts(req.body);
   new_account.save(function(err, account) {
@@ -23,7 +21,10 @@ exports.create_a_account = function(req, res) {
 
 
 exports.read_a_account = function(req, res) {
-  Accounts.findById(req.params.accountId, function(err, account) {
+  Accounts.findOne( {
+    login: req.params.login,
+    password: req.params.password
+  } , function(err, account) {
     if (err)
       res.send(err);
     res.json(account);
@@ -35,19 +36,18 @@ exports.update_a_account = function(req, res) {
   Accounts.findOneAndUpdate({_id: req.params.accountId}, req.body, {new: true}, function(err, account) {
     if (err)
       res.send(err);
-    res.json(account);
+    res.json({message: 'Hasło zmienione poprawnie' ,account});
   });
 };
 
 
 exports.delete_a_account = function(req, res) {
-
-
   Accounts.remove({
-    _id: req.params.account
+    login: req.params.login,
+    password: req.params.password
   }, function(err, account) {
     if (err)
       res.send(err);
-    res.json({ message: 'Konto usunięte poprawnie', account: account });
+    res.json({ message: 'Konto usunięte poprawnie' });
   });
 };

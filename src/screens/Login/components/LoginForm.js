@@ -1,14 +1,18 @@
-import React, {useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import {makeStyles} from '@material-ui/core/styles';
 import Box from '@material-ui/core/Box';
 import LoginBtn from './LoginBtn';
-import {useHistory} from 'react-router-dom';
 import {Field, Form, Formik} from 'formik';
 import {TextField} from 'formik-material-ui';
 import {ROUTE} from '../../../App/route-config';
 import ErrorMassage from '../../shared/components/ErrorMassage';
 import * as Yup from 'yup';
 import RegisterLinkBtn from './RegisterLinkBtn';
+import {connect} from "react-redux";
+import {bindActionCreators} from "redux";
+import PropTypes from 'prop-types';
+import {checkLoginExist} from "../loginApi";
+import {useHistory} from 'react-router-dom'
 
 const useStyles = makeStyles(() => ({
     input: {
@@ -55,24 +59,30 @@ const Schema = Yup.object().shape({
         .required("Pole jest wymagane")
 })
 
-const LoginForm = () => {
+const LoginForm = ({checkLoginExist, user}) => {
     const classes = useStyles();
-    let history = useHistory();
-    const [hasError, setHasError] = useState(false)
+    const history = useHistory()
+    const [hasError, setHasError] = useState(false);
+    const isDidMount = useRef(false)
+
+
+    useEffect(() => {
+        if (isDidMount.current) {
+            if (user) {
+                setHasError(false)
+                localStorage.setItem('logged', JSON.stringify(true))
+                localStorage.setItem('loggedId', JSON.stringify(user._id))
+                history.push(ROUTE.HOME)
+            } else
+                setHasError(true)
+        } else
+            isDidMount.current = true
+
+    }, [user])
+
 
     const handleSubmit = (value, {resetForm}) => {
-        let accounts = localStorage.getItem('accounts');
-        accounts = JSON.parse(accounts);
-
-        const hasFound = accounts ? accounts.filter(account => account.login === value.login && account.password === value.password).length > 0 : false;
-
-        if (hasFound) {
-            setHasError(false)
-            localStorage.setItem('logged', JSON.stringify(true))
-            history.push(ROUTE.HOME)
-        } else
-            setHasError(true)
-
+        checkLoginExist(value.login, value.password)
         resetForm()
     }
 
@@ -107,14 +117,25 @@ const LoginForm = () => {
                     <ErrorMassage>
                         {hasError && 'Podano błędny login lub hasło'}
                     </ErrorMassage>
-
-
-          </Box>
-          <LoginBtn/>
-          <RegisterLinkBtn/>
-        </Form>
-      </Formik>
-  )
+                </Box>
+                <LoginBtn/>
+                <RegisterLinkBtn/>
+            </Form>
+        </Formik>
+    )
 };
 
-export default LoginForm;
+LoginForm.propTypes = {
+    checkLoginExist: PropTypes.func,
+    user: PropTypes.object
+}
+
+const mapStateToProps = state => ({
+    user: state.loginStore.user
+})
+
+const mapDispatchToProps = dispatch => bindActionCreators({
+    checkLoginExist: checkLoginExist
+}, dispatch)
+
+export default connect(mapStateToProps, mapDispatchToProps)(LoginForm);

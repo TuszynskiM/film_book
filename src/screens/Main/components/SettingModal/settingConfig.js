@@ -4,10 +4,6 @@ export const modalBtnConfig = [
     option: 'change'
   },
   {
-    name: 'Przypomnij hasło',
-    option: 'remember'
-  },
-  {
     name: 'Usuń konto',
     option: 'delete'
   },
@@ -15,6 +11,5 @@ export const modalBtnConfig = [
 
 export const OPTIONS = {
   CHANGE: 'change',
-  REMEMBER: 'remember',
   DELETE: 'delete'
 }

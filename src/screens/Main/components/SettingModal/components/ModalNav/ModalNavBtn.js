@@ -13,7 +13,7 @@ const useStyle = makeStyles(() => ({
     backgroundColor: '#E60B0B',
     textAlign: 'center',
     lineHeight: '60px',
-    transition: '0.2s',
+
 
     '&:hover': {
       cursor: 'pointer',
@@ -27,7 +27,7 @@ const ModalNavBtn = ({btnText, setOption}) => {
   const classes = useStyle();
 
   return (
-      <Box className={classes.btn} onClick={setOption}>
+      <Box className={classes.btn} onClick={setOption} mx={3}>
         {btnText}
       </Box>
   )

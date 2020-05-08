@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Field, Form, Formik} from 'formik';
 import Box from '@material-ui/core/Box';
 import {useHistory} from 'react-router-dom';
@@ -7,6 +7,8 @@ import {makeStyles} from '@material-ui/core/styles';
 import {TextField} from 'formik-material-ui';
 import RegisterBtn from './RegisterBtn';
 import * as Yup from 'yup';
+import {registerUser} from "../../../api/registerUser";
+import ErrorMassage from "../../shared/components/ErrorMassage";
 
 const useStyles = makeStyles(() => ({
     input: {
@@ -60,14 +62,18 @@ const Schema = Yup.object().shape({
 const RegisterForm = () => {
     const classes = useStyles();
     let history = useHistory();
-
+    const [hasError, setHasError] = useState(false);
 
     const handleSubmit = (value, {resetForm}) => {
-        let accounts = localStorage.getItem('accounts')
-        accounts = JSON.parse(accounts);
-        accounts = accounts ? [accounts, value] : [value]
-        localStorage.setItem('accounts', JSON.stringify(accounts));
-        history.push(ROUTE.LOGIN)
+        const register = registerUser(value);
+        register.then((resp) => {
+            if (!resp.code) {
+                setHasError(false)
+                history.push(ROUTE.LOGIN)
+            } else
+                setHasError(true)
+        })
+
         resetForm()
     }
 
@@ -108,6 +114,9 @@ const RegisterForm = () => {
                         variant="outlined"
                         className={classes.input}
                     />
+                    <ErrorMassage>
+                        {hasError && 'Podane dane są już w bazie'}
+                    </ErrorMassage>
                 </Box>
                 <RegisterBtn/>
 

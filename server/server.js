@@ -11,6 +11,11 @@ mongoose.connect('mongodb://localhost:27017/?readPreference=primary&appname=Mong
     .then(()=>{console.log('udało się')})
     .catch((err)=>{console.log('error', err)})
 
+app.all('/*', function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "*");
+    next();
+});
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -21,5 +26,3 @@ routes(app); //register the route
 
 
 app.listen(port);
-
-console.log('todo list RESTful API server started on: ' + port);

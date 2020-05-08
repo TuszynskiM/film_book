@@ -24,7 +24,6 @@ const useStyles = makeStyles(() => ({
 const CustomBtn = ({btnText, handleClick}) => {
   const classes = useStyles();
   let type;
-console.log(handleClick)
   if (handleClick) {
     type = 'button'
   } else {

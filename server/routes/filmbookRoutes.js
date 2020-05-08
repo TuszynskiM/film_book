@@ -7,9 +7,11 @@ module.exports = function(app) {
       .get(accounts.list_all_accounts)
       .post(accounts.create_a_account);
 
+  app.route('/account/:login/:password')
+      .get(accounts.read_a_account)
+      .delete(accounts.delete_a_account);
 
   app.route('/account/:accountId')
-      .get(accounts.read_a_account)
       .put(accounts.update_a_account)
-      .delete(accounts.delete_a_account);
+
 };

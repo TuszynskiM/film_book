@@ -3,7 +3,7 @@ import DeleteAccountForm from './DeleteAccountForm';
 import SettingSection from '../../../../../shared/components/SettingSection/SettingSection';
 
 const DeleteAccount = () => {
-  const title = 'Usuń hasło';
+  const title = 'Usuń konto';
 
   return (
       <SettingSection sectionTitle={title}>

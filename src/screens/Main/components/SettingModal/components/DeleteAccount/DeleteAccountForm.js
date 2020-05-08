@@ -2,6 +2,7 @@ import React from 'react';
 import * as Yup from 'yup';
 import CustomForm from '../../../../../shared/components/CustomForm';
 import CustomBtn from '../../../../../shared/components/CustomBtn';
+import {deleteUser} from "../../../../../../api/deleteUser";
 
 const Schema = Yup.object().shape({
   login: Yup.string()
@@ -23,7 +24,7 @@ const inputConfig = [
   },
   {
     name: 'password',
-    type: 'text',
+    type: 'password',
     label: 'Hasło'
   }
 ]
@@ -31,8 +32,21 @@ const inputConfig = [
 const DeleteAccountForm = () => {
   const btnText = 'Usuń konto';
 
+
+  const handleSubmit =(value, )=>{
+    console.log(value)
+    const user = deleteUser(value.login, value.password)
+
+    user.then(resp=> {
+      console.log(resp.message)
+    })
+  /*  localStorage.removeItem('logged')
+    history.push(ROUTE.LOGIN)*/
+  }
+
+
   return (
-      <CustomForm inputConfig={inputConfig} initialValue={initialValues} validationSchema={Schema}>
+      <CustomForm inputConfig={inputConfig} initialValue={initialValues} validationSchema={Schema} handleSubmit={handleSubmit}>
         <CustomBtn btnText={btnText}/>
       </CustomForm>
   )
