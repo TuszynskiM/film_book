@@ -1,1 +1,1 @@
-export const url = "http://localhost:8080"
+export const url = `${window.location.href.slice(0,-6)}:8080`
