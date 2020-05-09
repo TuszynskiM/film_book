@@ -16,6 +16,6 @@ export const deleteData = (url)=>
         .catch((err)=>err)
 
 export const updateData = (url, newPassword)=>
-    axios.put(url, {newPassword})
+    axios.put(url, {password: newPassword})
         .then((resp)=>resp.data)
         .catch((err)=> err)
