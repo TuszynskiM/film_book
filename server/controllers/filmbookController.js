@@ -42,12 +42,12 @@ exports.update_a_account = function(req, res) {
 
 
 exports.delete_a_account = function(req, res) {
-  Accounts.remove({
+  Accounts.findOneAndRemove({
     login: req.params.login,
     password: req.params.password
   }, function(err, account) {
     if (err)
       res.send(err);
-    res.json({ message: 'Konto usunięte poprawnie' });
+    res.json(account ? { message: 'Konto usunięte poprawnie' }:{ message: 'Nie ma takiego konta' } );
   });
 };
